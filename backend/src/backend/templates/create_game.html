@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <dl>
+                {% for field in form.display %}
+                <dt>{{ form[field].label }}</dt>
+                <dd>{{ form[field]() }}
+                    {% if form[field].errors %}
+                        {% for e in form[field].errors %}{{ e }} {% endfor %}
+                    {% endif %}
+                </dd>
+                {% endfor %}
+            </dl>
+            <p>
+            <input type=submit value="Publish">
+        </form>
+    </body>
+</html>
